@@ -1,6 +1,6 @@
-<%= @post.title %>
-<%= @post.category %>
-
+<h1><%= @post.title %></h1>
+<h3><%= @post.category %></h3>
+<%= image_tag @post.image.url(:medium) %>
 <br>
 
 <%= link_to "Edit", edit_post_path(@post) %>

@@ -1,1 +1,7 @@
 <h1>Gallery</h1>
+<% @post.each do |p| %>
+<p> <%= link_to p.title, post_path(p.id) %> </p>
+<%= image_tag p.image.url(:thumb) %>
+<% end %>
+<br>
+<%= link_to "Upload", new_post_path %>
