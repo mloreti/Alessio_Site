@@ -1,0 +1,13 @@
+<%= form_for @post do |f| %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.select :category, options_for_select([["Category", ""], "Architecture", "Action",  "Landscape", "People"]), :class => '' %>
+  </p>
+
+  <%= f.submit "Upload image" %>
+<% end %>
