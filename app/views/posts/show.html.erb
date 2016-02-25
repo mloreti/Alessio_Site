@@ -2,6 +2,7 @@
 <h3><%= @post.category %></h3>
 <%= image_tag @post.image.url(:medium) %>
 <br>
-
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %>
+<% if admin_signed_in? %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %>
+<% end %>

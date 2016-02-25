@@ -1,7 +1,12 @@
-<h1>Gallery</h1>
 <% @post.each do |p| %>
-<p> <%= link_to p.title, post_path(p.id) %> </p>
-<%= image_tag p.image.url(:thumb) %>
+<div class="gallery <%= p.category %>">
+<h3> <%= link_to p.title, image_path(p.id) %> </h3>
+<%= link_to (image_tag p.image.url(:thumb)), image_path(p.id) %>
+</div>
 <% end %>
 <br>
-<%= link_to "Upload", new_post_path %>
+<br>
+<br>
+<% if admin_signed_in? %>
+  <%= link_to "Upload", new_post_path %>
+<% end %>

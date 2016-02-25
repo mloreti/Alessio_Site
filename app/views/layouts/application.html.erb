@@ -7,7 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <% if admin_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
+    </li>
+  <% end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<nav>
+  <h1>
+  <%= link_to 'Gallery', root_path %>
+  </h1>
+</nav>
 <%= yield %>
 
 </body>
