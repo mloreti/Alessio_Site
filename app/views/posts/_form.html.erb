@@ -6,13 +6,18 @@
   </p>
 
   <p>
-    <%= f.select :category, options_for_select([["Category", ""], "Architecture", "Action",  "Landscape", "People"]), :class => '' %>
+    <%= f.select :category, options_for_select([ "Architecture", "Action",  "Landscape", "People"]), :class => '' %>
+  </p>
+
+  <p>
+    Use image on main page?
+    <%= f.select :main_page, [['Yes', true], ['No', false]] %>
   </p>
 
   <p>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </p>
-
-  <%= f.submit "Upload image" %>
+<hr>
+  <%= f.submit "Submit" %>
 <% end %>

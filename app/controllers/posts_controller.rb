@@ -1,9 +1,17 @@
 class PostsController < ApplicationController
+
 before_action :find_post, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_admin!, except: [:index, :show]
 
   def index
     @post = Post.all
+    @category = Post.uniq.pluck(:category)
+
+    if params[:category]
+      @post = Post.where(:category => params[:category])
+    else
+      @post = Post.all
+    end
   end
 
   def new
@@ -41,10 +49,10 @@ before_action :authenticate_admin!, except: [:index, :show]
   private
 
   def post_params
-    params.require(:post).permit(:title, :category, :image)
+    params.require(:post).permit(:title, :category, :image, :main_page)
   end
 
   def find_post
-    @post = Post.find(params[:id])
+    @post = Post.find_by_title(params[:id])
   end
 end

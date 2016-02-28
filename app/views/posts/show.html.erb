@@ -1,6 +1,15 @@
 <h1><%= @post.title %></h1>
-<h3><%= @post.category %></h3>
+<h3>Category: <%= @post.category %></h3>
 <%= image_tag @post.image.url(:medium) %>
+<br>
+
+<% if @post.previous %>
+    <%= link_to "< Previous", @post.previous %>
+<% end %>
+<% if @post.next %>
+    <%= link_to "Next >", @post.next %>
+<% end %>
+<br>
 <br>
 <% if admin_signed_in? %>
   <%= link_to "Edit", edit_post_path(@post) %>

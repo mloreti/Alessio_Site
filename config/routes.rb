@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
 devise_for :admins
+
+root 'static_pages#index'
+
+resources :posts, :path => 'images'
+
 get '/contact', to: 'static_pages#contact'
 
-resources :posts
-root 'posts#index'
+devise_scope :admin do
+  get "/login" => "devise/sessions#new"
+  get "/signup" => "devise/registrations#new"
+  delete "/logout" => "devise/sessions#destroy"
+end
 
-get '/images/:id', to: 'posts#show'
-get '/images/new', to: 'posts#new'
-
-get '*path' => redirect('/')
+#get '*path' => redirect('/')
 
 end

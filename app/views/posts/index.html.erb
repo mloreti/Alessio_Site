@@ -1,12 +1,27 @@
-<% @post.each do |p| %>
-<div class="gallery <%= p.category %>">
-<h3> <%= link_to p.title, image_path(p.id) %> </h3>
-<%= link_to (image_tag p.image.url(:thumb)), image_path(p.id) %>
-</div>
+<%= link_to "All", posts_path %>
+<% @category.each do |cat| %>
+  <%= link_to cat, posts_path(:category=>cat) %>
 <% end %>
-<br>
 <br>
 <br>
 <% if admin_signed_in? %>
   <%= link_to "Upload", new_post_path %>
 <% end %>
+
+<br>
+<br>
+<div class="picture">
+  <% @post.each do |p| %>
+  <div class="image">
+  <% if admin_signed_in? %>
+    <p><%= link_to p.title, edit_post_path(p) %></p>
+  <% end %>
+  <%= link_to p.image.url, data: { lightbox: "gallery" } do %>
+    <div class="gallery_image" style="background-image:url('<%= p.image.url %>');">
+    </div>
+  <% end %>
+  </div>
+  <% end %>
+</div>
+
+<!-- image_path(p.title) -->

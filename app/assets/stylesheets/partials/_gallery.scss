@@ -1,0 +1,14 @@
+.gallery_image {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.image {
+  display: inline-block;
+}

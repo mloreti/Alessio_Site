@@ -1,0 +1,15 @@
+<header id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+      <% @post.each do |p| %>
+      <% active = "active" if p == @post.first %>
+        <div class="item <%= active %> ">
+          <div class="fill" style="background-image:url('<%= p.image.url %>');"></div>
+        </div>
+      <% end %>
+    </div>
+</header>
+<script>
+$('.carousel').carousel({
+    interval: 3500 //changes the speed
+})
+</script>
