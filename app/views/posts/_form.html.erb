@@ -6,11 +6,13 @@
   </p>
 
   <p>
-    <%= f.select :category, options_for_select([ "Architecture", "Action",  "Landscape", "People"]), :class => '' %>
+  <%= f.label "Category" %>
+    <% categories = [ "Action", "Architecture", "Landscape", "People"] %>
+    <%= f.select :category, options_for_select(categories) %>
   </p>
 
   <p>
-    Use image on main page?
+    <%= f.label "Use image on main page?" %>
     <%= f.select :main_page, [['Yes', true], ['No', false]] %>
   </p>
 

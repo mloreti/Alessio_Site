@@ -16,6 +16,7 @@ before_action :authenticate_admin!, except: [:index, :show]
 
   def new
     @post = Post.new
+    @category = Post.uniq.pluck(:category)
   end
 
   def create
@@ -31,6 +32,7 @@ before_action :authenticate_admin!, except: [:index, :show]
   end
 
   def edit
+    @category = Post.uniq.pluck(:category)
   end
 
   def update
