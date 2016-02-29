@@ -1,0 +1,29 @@
+.login {
+  h2 {
+    font-weight: 300;
+  }
+  .field {
+    input {
+      width:100%;
+      background-color: #eaeaea;
+      padding: 5px;
+      font-size: 1.25em;
+    }
+    input#admin_remember_me {
+      width: auto;
+      margin-top: 15px;
+    }
+    label {
+      font-weight: 300;
+    }
+  }
+  input[type="submit"] {
+    width: 100%;
+  }
+  .actions {
+    margin-top: 10px;
+  }
+  a {
+    margin-top: 5px;
+  }
+}

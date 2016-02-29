@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Alessio</title>
+  <title>Alessio R Loreti | Photographer</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container-fluid">
   <% if admin_signed_in? %>
     <li>
     <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
     </li>
   <% end %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<nav>
-  <h1>
-  <%= link_to 'AlessioRLoreti', root_path %>
-  </h1>
-  <%= link_to "Images", posts_path %>
-  <%= link_to "Instagram", "http://www.instagram.com/AlessioRLoreti" %>
-  <%= link_to "Contact", contact_path %>
+  <% flash.each do |key, value| %>
+        <div id="flash" class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+<nav class="row">
+  <div class="container-fluid">
+    <div class="pull-left">
+      <div class="logo"><%= link_to image_tag('logo.png'), root_path %></div>
+    </div>
+    <div class="links pull-right">
+      <%= link_to "Images", posts_path %>
+      <%= link_to "Contact", contact_path %>
+      <%= link_to "Instagram", "http://www.instagram.com/AlessioRLoreti" %>
+    </div>
+  </div>
 </nav>
-<hr>
 <%= yield %>
-
+</div>
 </body>
 </html>
