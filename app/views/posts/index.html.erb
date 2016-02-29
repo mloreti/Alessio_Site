@@ -16,7 +16,7 @@
     <% @post.each do |p| %>
     <div class="image col-xs-6 col-sm-3">
     <% if admin_signed_in? %>
-      <p><%= link_to p.title, edit_post_path(p) %></p>
+      <p><%= link_to p.title, post_path(p) %></p>
     <% end %>
     <%= link_to p.image.url, data: { lightbox: "gallery", title: p.title } do %>
       <div class="gallery_image" style="background-image:url('<%= p.image.url %>');">

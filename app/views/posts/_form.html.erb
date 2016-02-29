@@ -7,8 +7,9 @@
 
   <p>
   <%= f.label "Category" %>
-    <% categories = [ "Action", "Architecture", "Landscape", "People"] %>
-    <%= f.select :category, options_for_select(categories) %>
+    <!-- <% categories = [ "Action", "Architecture", "Landscape", "People"] %>
+    <%= f.select :category, options_for_select(categories) %> -->
+    <%= f.text_field :category %>
   </p>
 
   <p>

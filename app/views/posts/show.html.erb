@@ -1,18 +1,25 @@
+<div class="container-fluid show">
+  <div class="row">
+    <div class="col-xs-4">
 <h1><%= @post.title %></h1>
-<h3>Category: <%= @post.category %></h3>
+<h4>Category: <%= @post.category %></h4>
 <%= image_tag @post.image.url(:medium) %>
 <br>
 
 <% if @post.previous %>
-    <%= link_to "< Previous", @post.previous %>
+    <button type="button" name="button"><%= link_to "< Previous", @post.previous %></button>
 <% end %>
 <% if @post.next %>
-    <%= link_to "Next >", @post.next %>
+    <span class="pull-right"><button type="button" name="button"> <%= link_to "Next >", @post.next %></button> </span>
 <% end %>
 <br>
 <br>
 <% if admin_signed_in? %>
-  <p><%= link_to "Back to Images", posts_path %></p>
-  <p><%= link_to "Edit", edit_post_path(@post) %></p>
-  <p><%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %></p>
+  <button type="button" class="btn btn-primary"><%= link_to "Edit", edit_post_path(@post) %></button>
+  <button type="button" class="btn btn-danger"><%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"} %></button>
+  <button type="button" class="btn btn-secondary"> <%= link_to "Back to images", posts_path %> </button>
 <% end %>
+</div>
+
+</div>
+</div>
