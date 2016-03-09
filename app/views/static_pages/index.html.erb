@@ -3,7 +3,7 @@
       <% @post.each do |p| %>
       <% active = "active" if p == @post.first %>
         <div class="item <%= active %> ">
-          <div class="fill" style="background-image:url('<%= p.image.url %>');"></div>
+          <div class="fill" style="background-image:url('<%= p.image.url(:xlarge) %>');"></div>
         </div>
       <% end %>
     </div>
