@@ -8,7 +8,7 @@ gem "paperclip"
 gem 'aws-sdk', '< 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'normalize-rails'
-gem 'lightbox2-rails'
+gem 'lightbox2-rails', '~> 2.7.1'
 
 
 # Use SCSS for stylesheets
